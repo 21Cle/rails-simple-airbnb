@@ -2,14 +2,17 @@
 <a class="btn btn-flat" href="#"><%= link_to 'Add flat', new_flat_path %></a>
 <div class="container">
   <h1><strong>All our Flats</strong></h1>
-    <div class="cards">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
-<ul>
-<% @flats.each do |flat| %>
-<li><%= link_to flat.name, flat_path(flat) %> - <%= link_to '🗑', flat_path(flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
-<% end %>
-</ul>
 
-      </div>
-    </div>
+
+    <% @flats.each do |flat| %>
+    <div class="card-product">
+  <div class="card-product-infos">
+    <h2><%= flat.name %></h2>
+    <p><%= flat.description %></p>
+    <p><i class="fa-solid fa-users"></i> <%= flat.number_of_guests %></p>
+    <p><i class="fa-solid fa-euro-sign"></i> <%= flat.price_per_night %></p>
+    <%= link_to "🗑", flat_path(flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </div>
+</div>
+    <% end %>
 </div>
