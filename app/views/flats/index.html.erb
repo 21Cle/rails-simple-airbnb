@@ -1,0 +1,15 @@
+
+<a class="btn btn-flat" href="#"><%= link_to 'Add flat', new_flat_path %></a>
+<div class="container">
+  <h1><strong>All our Flats</strong></h1>
+    <div class="cards">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
+<ul>
+<% @flats.each do |flat| %>
+<li><%= link_to flat.name, flat_path(flat) %> - <%= link_to '🗑', flat_path(flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
+<% end %>
+</ul>
+
+      </div>
+    </div>
+</div>
